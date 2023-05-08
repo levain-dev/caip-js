@@ -2,7 +2,7 @@ name: Release
 
 on:
   release:
-    types: [published]
+    types: [ published ]
 
 jobs:
   version:
@@ -35,9 +35,11 @@ jobs:
           cache: 'yarn'
 
       - run: corepack enable yarn
-      - run: yarn install
 
-      - run: pnpm -r publish --access restricted --tag latest --no-git-checks
+      - run: yarn install
+      - run: yarn lint
+      - run: yarn build
+      - run: yarn test
 
       - name: Publish to npm registry
         env:
