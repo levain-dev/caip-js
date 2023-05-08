@@ -37,6 +37,10 @@ jobs:
 
       - run: corepack enable yarn
 
+      - run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "noreply@github.com"
+
       - run: yarn install
       - run: yarn lint
       - run: yarn build
