@@ -43,6 +43,4 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
           CAIP_JS_VERSION: ${{ needs.version.outputs.result }}
-        run: |
-          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
-          yarn publish --non-interactive --new-version $CAIP_JS_VERSION
+        run: yarn publish --non-interactive --new-version $CAIP_JS_VERSION
